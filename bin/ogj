@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'operation/great/justice'
+
+puts Operation::Great::Justice.generate(ARGV[1])
