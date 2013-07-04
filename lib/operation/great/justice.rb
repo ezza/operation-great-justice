@@ -13,7 +13,6 @@ module Operation
         first = []
         last = []
         token.bytes.each_slice(2) { |a| first << a.first; last << a.last }
-        puts "first: #{first}, last: #{last}"
 
         # Do a mind-numbingly simple XOR hash of each array.
         first = first.inject(0) { |h,i| h ^ i }

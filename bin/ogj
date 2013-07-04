@@ -2,4 +2,4 @@
 
 require 'operation/great/justice'
 
-puts Operation::Great::Justice.generate(ARGV[1])
+puts Operation::Great::Justice.generate(ARGV[0])
