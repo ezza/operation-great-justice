@@ -14,13 +14,13 @@ module Operation
         last = []
         token.bytes.each_slice(2) { |a| first << a.first; last << a.last }
 
-        # Do a mind-numbingly simple XOR hash of each array.
-        first = first.inject(0) { |h,i| h ^ i }
-        last  = last.inject(0) { |h,i| h ^ i }
+        first_pos = first.each_with_index.map { |b,i| b << i }.reduce(:+)
+        first_max = first.each_with_index.map { |b,i| 0xff << i }.reduce(:+)
+        first = (first_pos.to_f / first_max * adjectives.size).to_i
 
-        # Scale the hash to the size of each word list
-        first = (first.to_f / 255 * adjectives.size).to_i
-        last  = (last.to_f / 255 * nouns.size).to_i
+        last_pos = last.each_with_index.map { |b,i| b << i }.reduce(:+)
+        last_max = last.each_with_index.map { |b,i| 0xff << i }.reduce(:+)
+        last = (last_pos.to_f / last_max * adjectives.size).to_i
 
         # Collect our words
         first = adjectives[first]
@@ -34,11 +34,25 @@ module Operation
       end
 
       def nouns
-        @nouns ||= File.read(File.expand_path('../../../../nouns.txt', __FILE__)).split("\n")
+        @nouns ||= _parts_of_speech.select { |w| w.tags.member? 'N' }.map(&:word)
       end
 
       def adjectives
-        @adjectives ||= File.read(File.expand_path('../../../../adjectives.txt', __FILE__)).split("\n")
+        @adjectives ||= _parts_of_speech.select { |w| w.tags.member? 'A' }.map(&:word)
+      end
+
+      def _parts_of_speech(tag=nil)
+        @parts_of_speech ||= File.open(File.expand_path('../../../../part-of-speech.txt', __FILE__), 'r').each_line.map { |l| Word.new(l) }
+      end
+
+      class Word
+        attr_accessor :word
+        attr_accessor :tags
+        def initialize(line)
+          w,t = line.split("\t")
+          self.word = w
+          self.tags = t.split('')
+        end
       end
     end
   end
