@@ -8,6 +8,7 @@ Adjectives and nouns blatantly stolen from https://github.com/aaronbassett/Pass-
 Appended with adjectives and nouns from Simple English Wikipedia :
   - https://simple.wikipedia.org/wiki/Adjective
   - https://simple.wikipedia.org/wiki/BE_1500
+Appended with 4 letter adjectives from http://wordlist.sourceforge.net/
 Thanks for that.
 
 ## Installation
