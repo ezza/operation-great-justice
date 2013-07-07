@@ -1,5 +1,6 @@
 require "operation/great/justice/version"
 require 'zlib'
+require 'securerandom'
 
 module Operation
   module Great
@@ -19,6 +20,17 @@ module Operation
         # Collect our words
         first = adjectives[first]
         last  = nouns[last]
+
+        # Capitalize our words
+        first = first.slice(0,1).capitalize + first.slice(1..-1)
+        last  = last.slice(0,1).capitalize + last.slice(1..-1)
+
+        "Operation #{first} #{last}"
+      end
+
+      def random
+        first = adjectives[SecureRandom.random_number(adjectives.size)]
+        last = nouns[SecureRandom.random_number(nouns.size)]
 
         # Capitalize our words
         first = first.slice(0,1).capitalize + first.slice(1..-1)
