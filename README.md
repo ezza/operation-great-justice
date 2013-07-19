@@ -4,7 +4,12 @@ TODO: Write a gem description
 
 ## Thanks
 
-Adjectives and nounds blatantly stolen from https://github.com/aaronbassett/Pass-phrase
+Adjectives and nouns blatantly stolen from https://github.com/aaronbassett/Pass-phrase
+Appended with adjectives and nouns from Simple English Wikipedia :
+  - https://simple.wikipedia.org/wiki/Adjective
+  - https://simple.wikipedia.org/wiki/BE_1500
+Appended with selection of simple sounding adjectives from http://wordlist.sourceforge.net/
+Appended with selection of simple sounding nouns from http://wordlist.sourceforge.net/
 Thanks for that.
 
 ## Installation
