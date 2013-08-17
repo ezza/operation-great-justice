@@ -1,3 +1,4 @@
+justice
 mark
 station
 cracker
@@ -2054,7 +2055,6 @@ fraction
 specimen
 newspaper
 troubling
-justice
 similarity
 ferment
 sensitivity

@@ -1,3 +1,4 @@
+great
 quizzical
 highfalutin
 dynamic
@@ -95,7 +96,6 @@ strong
 momentous
 ordinary
 dry
-great
 ultra
 ahead
 broken
