@@ -1,6 +1,14 @@
 #!/usr/bin/env ruby
 
 require 'operation/great/justice'
+require 'optparse'
+
+OptionParser.new do |opts|
+  opts.on("-n", "--number NUMBER", "Pass in a number") do |number|
+    puts Operation::Great::Justice.generate_from_number(number)
+    exit 0
+  end
+end.parse!
 
 if ARGV[0]
   puts Operation::Great::Justice.generate(ARGV[0])
